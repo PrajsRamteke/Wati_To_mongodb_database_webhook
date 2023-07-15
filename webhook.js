@@ -1,5 +1,3 @@
-/** @format */
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -23,9 +21,7 @@ mongoose
   });
 
 const Message = mongoose.model("Message", {
-  id: String,
   text: String,
-  data: String,
   timestamp: Date,
 });
 
@@ -36,9 +32,7 @@ app.post("/webhook", async (req, res) => {
     const message = req.body;
 
     const newMessage = new Message({
-      id: message.id,
       text: message.text,
-      data: message.data,
       timestamp: new Date(message.timestamp),
     });
 
@@ -58,8 +52,6 @@ app.listen(port, () => {
 
 // http://localhost:3000/webhook
 // {
-//     "id": "1",
 //     "text": "Hello, world!",
-//     "data": "Some data",
 //     "timestamp": "2023-07-12T12:00:00Z"
 //   }

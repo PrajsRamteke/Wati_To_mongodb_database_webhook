@@ -7,7 +7,7 @@ const port = 3000;
 
 
 // Configure body-parser middleware to parse request bodies
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 // Connect to MongoDB
 // "mongodb://127.0.0.1:27017/webhookdatabase"
